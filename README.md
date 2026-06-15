@@ -443,7 +443,8 @@ MET2MOD was developed using:
 * ERA5 Reanalysis Dataset
 * ADCIRC Modeling System
 * Louisiana State University; Louisiana State University: Coastal Ecosystem Design Studio
-* Developed by: Dr Pete Bacopoulos ||Email: pbacopoulos@lsu.edu, Yusuf Taofiq || tyusuf1@lsu.edu, Dr Matthew Brand || mbrabd@lsu.edu
+* Developed by: Dr Pete Bacopoulos || Email: pbacopoulos@lsu.edu, Yusuf Taofiq || Email: tyusuf1@lsu.edu, Dr Matthew Brand || Email: mbrabd@lsu.edu
+
 Special thanks to the ADCIRC community and developers whose documentation and tools contributed to this workflow.
 
 ---
