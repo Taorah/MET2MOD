@@ -62,9 +62,6 @@ MET2MOD
     │   ├── MATLAB
     │   │   ├── Convert2OWI_ALL_YEARS.m
     │   │   └── WriteOwi.m
-    │   │
-    │   └── Python
-    │       └── convert_era5_to_owi.py
     │
     └── 3_Postprocess_OWI
         ├── ProcessRemoveHeaderLinesPre.sh
