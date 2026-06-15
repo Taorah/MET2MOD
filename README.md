@@ -445,7 +445,7 @@ Special thanks to the ADCIRC community and developers whose documentation and to
 ---
 # Contributors
 
-### Dr. Pete Bacopoulos
+### Dr. Peter Bacopoulos
 Louisiana State University: Coastal Ecosystem Design Studio (CEDS)
 Louisiana State University: Department of Civil and Environmental Engineering
 
