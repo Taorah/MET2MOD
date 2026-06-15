@@ -469,13 +469,9 @@ Project oversight and scientific guidance
 
 # Citation
 
-# Citation
-
 If you use MET2MOD in your research, please cite:
 
-Taofiq, Y., Bacopoulos, P., and Brand, M. (2026).
-
-**MET2MOD: A workflow for downloading ERA5 meteorological forcing and generating ADCIRC Oceanweather (OWI) forcing files.**
+Taofiq, Y., Bacopoulos, P., and Brand, M. (2026). **MET2MOD: A workflow for downloading ERA5 meteorological forcing and generating ADCIRC Oceanweather (OWI) forcing files.** _https://github.com/Taorah/MET2MOD_
 
 GitHub repository:
 
@@ -493,4 +489,4 @@ Repository Maintainer:
 
 Yusuf Taofiq
 Louisiana State University
-tyusuf1@lsu.edu
+Email: tyusuf1@lsu.edu
