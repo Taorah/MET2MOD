@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+title: "MET2MOD"
+message: "If you use this software, please cite it as below."
+type: software
+
+authors:
+  - family-names: Taofiq
+    given-names: Yusuf
+    affiliation: Louisiana State University
+
+  - family-names: Bacopoulos
+    given-names: Pete
+    affiliation: Coastal Ecosystem Design Studio, Louisiana State University
+
+  - family-names: Brand
+    given-names: Matthew
+    affiliation: Coastal Ecosystem Design Studio, Louisiana State University
+
+repository-code: "https://github.com/Taorah/MET2MOD"
+
+version: "1.0.0"
+
+date-released: 2026-06-15
