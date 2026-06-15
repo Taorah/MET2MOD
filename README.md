@@ -443,11 +443,20 @@ MET2MOD was developed using:
 * ERA5 Reanalysis Dataset
 * ADCIRC Modeling System
 * Louisiana State University; Louisiana State University: Coastal Ecosystem Design Studio
-* Developed by: Dr Pete Bacopoulos || Email: pbacopoulos@lsu.edu, Yusuf Taofiq || Email: tyusuf1@lsu.edu, Dr Matthew Brand || Email: mbrabd@lsu.edu
 
 Special thanks to the ADCIRC community and developers whose documentation and tools contributed to this workflow.
 
 ---
+# Contributors
+
+Dr. Pete Bacopoulos
+Original ERA5-to-OWI workflow and supporting scripts
+
+Yusuf Taofiq
+Repository development, workflow automation, documentation, Python implementation, testing, and maintenance
+
+Dr. Matthew Brand
+Project oversight and scientific guidance
 
 # Citation
 
@@ -460,3 +469,11 @@ ERA5 Reanalysis Dataset
 https://cds.climate.copernicus.eu
 
 and cite any relevant ADCIRC publications associated with your modeling workflow.
+
+# Contact
+
+Repository Maintainer:
+
+Yusuf Taofiq
+Louisiana State University
+tyusuf1@lsu.edu
