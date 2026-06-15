@@ -449,26 +449,43 @@ Special thanks to the ADCIRC community and developers whose documentation and to
 ---
 # Contributors
 
-Dr. Pete Bacopoulos
-Original ERA5-to-OWI workflow and supporting scripts
+### Dr. Pete Bacopoulos
+Louisiana State University: Coastal Ecosystem Design Studio (CEDS)
+Louisiana State University: Department of Civil and Environmental Engineering
 
-Yusuf Taofiq
-Repository development, workflow automation, documentation, Python implementation, testing, and maintenance
+Original ERA5-to-OWI workflow and supporting scripts.
 
-Dr. Matthew Brand
+### Yusuf Taofiq
+Department of Civil and Environmental Engineering
+Louisiana State University
+
+Repository development, workflow automation, documentation, Python implementation, testing, validation, and maintenance.
+
+### Dr. Matthew Brand
+Department of Civil and Environmental Engineering
+Louisiana State University
+
 Project oversight and scientific guidance
 
 # Citation
 
-If you use MET2MOD in research, please cite:
+# Citation
 
-Copernicus Climate Change Service (C3S)
+If you use MET2MOD in your research, please cite:
 
-ERA5 Reanalysis Dataset
+Taofiq, Y., Bacopoulos, P., and Brand, M. (2026).
 
-https://cds.climate.copernicus.eu
+**MET2MOD: A workflow for downloading ERA5 meteorological forcing and generating ADCIRC Oceanweather (OWI) forcing files.**
 
-and cite any relevant ADCIRC publications associated with your modeling workflow.
+GitHub repository:
+
+https://github.com/Taorah/MET2MOD
+
+Please also cite:
+
+* Copernicus Climate Change Service (C3S) ERA5 Reanalysis Dataset
+* ADCIRC Modeling System publications relevant to your application
+
 
 # Contact
 
