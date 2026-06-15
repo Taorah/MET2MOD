@@ -442,7 +442,8 @@ MET2MOD was developed using:
 * Copernicus Climate Change Service (C3S)
 * ERA5 Reanalysis Dataset
 * ADCIRC Modeling System
-* Louisiana State University; Louisiana State University: Coastal Ecosystem Design Studio
+
+Louisiana State University; Louisiana State University: Coastal Ecosystem Design Studio
 
 Special thanks to the ADCIRC community and developers whose documentation and tools contributed to this workflow.
 
