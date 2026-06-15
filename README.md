@@ -11,7 +11,6 @@ MET2MOD is an open-source workflow for downloading ERA5 atmospheric reanalysis d
 Future planned support:
 
 * Delft3D-FM
-* FVCOM
 ---
 
 # Overview
@@ -427,11 +426,7 @@ pip install numpy netCDF4 cdsapi
 Planned additions include:
 
 * Delft3D-FM forcing generation
-* FVCOM forcing generation
-* Automated header generation
-* Fully automated Python-only workflow
-* Containerized deployment using Docker
-* Automated validation tools for OWI output
+
 
 ---
 
