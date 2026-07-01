@@ -171,7 +171,7 @@ era5_1979.nc
 era5_1980.nc
 ...
 era5_2019.nc
-era5_20200101.nc
+era5_2025.nc
 ```
 
 ---
@@ -284,9 +284,9 @@ bash ProcessConcatenateFiles.sh
 Output:
 
 ```text
-era5_19790101_20200101_formatOWI_Basin.pre
+era5_19790101_20250101_formatOWI_Basin.pre
 
-era5_19790101_20200101_formatOWI_Basin.win
+era5_19790101_20250101_formatOWI_Basin.win
 ```
 
 ---
@@ -296,7 +296,7 @@ era5_19790101_20200101_formatOWI_Basin.win
 The final forcing files begin with:
 
 ```text
-Oceanweather WIN/PRE Format                          1979010100       2020010100
+Oceanweather WIN/PRE Format                          1979010100       2025010100
 ```
 
 This header is required by ADCIRC and is automatically inserted during concatenation.
@@ -308,9 +308,9 @@ This header is required by ADCIRC and is automatically inserted during concatena
 Place:
 
 ```text
-era5_19790101_20200101_formatOWI_Basin.pre
+era5_19790101_20250101_formatOWI_Basin.pre
 
-era5_19790101_20200101_formatOWI_Basin.win
+era5_19790101_20250101_formatOWI_Basin.win
 ```
 
 into your ADCIRC simulation directory.
