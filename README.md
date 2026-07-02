@@ -423,42 +423,6 @@ Use yearly downloads rather than requesting multiple decades in a single CDS req
 
 ---
 
-## NetCDF Variable Error
-
-```text
-Unable to find variable "time"
-```
-
-Solution:
-
-Recent ERA5 downloads use:
-
-```text
-valid_time
-```
-
-instead of:
-
-```text
-time
-```
-
-Update conversion scripts accordingly.
-
----
-
-## MATLAB Memory Error
-
-```text
-Java heap space
-```
-
-Solution:
-
-Process data one year at a time or increase MATLAB Java heap allocation.
-
----
-
 ## Missing Python Packages
 
 ```text
