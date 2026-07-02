@@ -40,17 +40,17 @@ The example workflow included in this repository demonstrates the generation of 
 
 # Workflow Flexibility
 
-The Example Application provides a complete, reproducible workflow using ERA5 data and ADCIRC OWI forcing. While this example serves as the reference implementation, MET2MOD has been designed so that users can adapt key components of the workflow to suit different applications.
+The Example Application provides a complete, reproducible workflow using ERA5 data and ADCIRC Oceanweather (OWI) forcing. While this example serves as the reference implementation, MET2MOD has been designed so that users can adapt key components of the workflow to suit different applications.
 
 The table below summarizes the primary user-configurable parameters available throughout the workflow.
 
-| Workflow Step            | User-configurable parameters |
-|--------------------------------------------------------|
-| ERA5 Download            | Start year, end year, spatial domain, output directory |
-| ERA5 → OWI Conversion    | Input/output directories, years to process, MATLAB or Python workflow |
-| Remove Duplicate Headers | Start year, end year |
-| Concatenate Files        | Start year, end year, output filename |
-| ADCIRC Simulation        | Simulation period, mesh, meteorological forcing configuration (`fort.15`) |
+| Workflow Step | User-configurable Parameters |
+| :------------ | :--------------------------- |
+| **ERA5 Download** | Start year, end year, geographic domain, output directory |
+| **ERA5 → OWI Conversion** | Input directory, output directory, years to process, MATLAB or Python implementation |
+| **Remove Duplicate Headers** | Start year, end year |
+| **Concatenate Files** | Start year, end year, output filename |
+| **ADCIRC Simulation** | Simulation period, computational mesh, meteorological forcing configuration (`fort.15`) |
 
 Throughout this README, user-configurable parameters are highlighted within each workflow step.
 
