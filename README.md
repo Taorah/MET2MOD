@@ -184,7 +184,7 @@ The yearly NetCDF files are later converted into ADCIRC forcing files.
 
 ---
 
-## Download All Years automatically (Specify Start and end Years)
+## Download All Years automatically 
 
 Run:
 
