@@ -4,113 +4,65 @@ echo "========================================="
 echo "Creating ADCIRC PRE and WIN forcing files"
 echo "========================================="
 
-HEADER="Oceanweather WIN/PRE Format                          1979010100       2020010100"
+#############################################
+# USER SETTINGS
+#############################################
+
+START_YEAR=1979
+END_YEAR=2025
+
+#############################################
+# Header
+#############################################
+
+HEADER_START="${START_YEAR}010100"
+HEADER_END="${END_YEAR}123123"
+
+HEADER="Oceanweather WIN/PRE Format                          ${HEADER_START}       ${HEADER_END}"
+
+#############################################
+# Output filenames
+#############################################
+
+PRE_OUT="era5_${START_YEAR}0101_${END_YEAR}1231_formatOWI_Basin.pre"
+WIN_OUT="era5_${START_YEAR}0101_${END_YEAR}1231_formatOWI_Basin.win"
 
 #############################################
 # PRE FILE
 #############################################
 
-echo "$HEADER" > era5_19790101_20200101_formatOWI_Basin.pre
+echo "$HEADER" > "$PRE_OUT"
 
-cat \
-era5_1979_formatOWI_BasinRE.pre \
-era5_1980_formatOWI_BasinRE.pre \
-era5_1981_formatOWI_BasinRE.pre \
-era5_1982_formatOWI_BasinRE.pre \
-era5_1983_formatOWI_BasinRE.pre \
-era5_1984_formatOWI_BasinRE.pre \
-era5_1985_formatOWI_BasinRE.pre \
-era5_1986_formatOWI_BasinRE.pre \
-era5_1987_formatOWI_BasinRE.pre \
-era5_1988_formatOWI_BasinRE.pre \
-era5_1989_formatOWI_BasinRE.pre \
-era5_1990_formatOWI_BasinRE.pre \
-era5_1991_formatOWI_BasinRE.pre \
-era5_1992_formatOWI_BasinRE.pre \
-era5_1993_formatOWI_BasinRE.pre \
-era5_1994_formatOWI_BasinRE.pre \
-era5_1995_formatOWI_BasinRE.pre \
-era5_1996_formatOWI_BasinRE.pre \
-era5_1997_formatOWI_BasinRE.pre \
-era5_1998_formatOWI_BasinRE.pre \
-era5_1999_formatOWI_BasinRE.pre \
-era5_2000_formatOWI_BasinRE.pre \
-era5_2001_formatOWI_BasinRE.pre \
-era5_2002_formatOWI_BasinRE.pre \
-era5_2003_formatOWI_BasinRE.pre \
-era5_2004_formatOWI_BasinRE.pre \
-era5_2005_formatOWI_BasinRE.pre \
-era5_2006_formatOWI_BasinRE.pre \
-era5_2007_formatOWI_BasinRE.pre \
-era5_2008_formatOWI_BasinRE.pre \
-era5_2009_formatOWI_BasinRE.pre \
-era5_2010_formatOWI_BasinRE.pre \
-era5_2011_formatOWI_BasinRE.pre \
-era5_2012_formatOWI_BasinRE.pre \
-era5_2013_formatOWI_BasinRE.pre \
-era5_2014_formatOWI_BasinRE.pre \
-era5_2015_formatOWI_BasinRE.pre \
-era5_2016_formatOWI_BasinRE.pre \
-era5_2017_formatOWI_BasinRE.pre \
-era5_2018_formatOWI_BasinRE.pre \
-era5_2019_formatOWI_BasinRE.pre \
-era5_20200101_formatOWI_BasinRE.pre \
->> era5_19790101_20200101_formatOWI_Basin.pre
+for YEAR in $(seq $START_YEAR $END_YEAR)
+do
+    echo "Adding PRE file for ${YEAR}..."
+    cat "era5_${YEAR}_formatOWI_BasinRE.pre" >> "$PRE_OUT"
+done
 
 #############################################
 # WIN FILE
 #############################################
 
-echo "$HEADER" > era5_19790101_20200101_formatOWI_Basin.win
+echo "$HEADER" > "$WIN_OUT"
 
-cat \
-era5_1979_formatOWI_BasinRE.win \
-era5_1980_formatOWI_BasinRE.win \
-era5_1981_formatOWI_BasinRE.win \
-era5_1982_formatOWI_BasinRE.win \
-era5_1983_formatOWI_BasinRE.win \
-era5_1984_formatOWI_BasinRE.win \
-era5_1985_formatOWI_BasinRE.win \
-era5_1986_formatOWI_BasinRE.win \
-era5_1987_formatOWI_BasinRE.win \
-era5_1988_formatOWI_BasinRE.win \
-era5_1989_formatOWI_BasinRE.win \
-era5_1990_formatOWI_BasinRE.win \
-era5_1991_formatOWI_BasinRE.win \
-era5_1992_formatOWI_BasinRE.win \
-era5_1993_formatOWI_BasinRE.win \
-era5_1994_formatOWI_BasinRE.win \
-era5_1995_formatOWI_BasinRE.win \
-era5_1996_formatOWI_BasinRE.win \
-era5_1997_formatOWI_BasinRE.win \
-era5_1998_formatOWI_BasinRE.win \
-era5_1999_formatOWI_BasinRE.win \
-era5_2000_formatOWI_BasinRE.win \
-era5_2001_formatOWI_BasinRE.win \
-era5_2002_formatOWI_BasinRE.win \
-era5_2003_formatOWI_BasinRE.win \
-era5_2004_formatOWI_BasinRE.win \
-era5_2005_formatOWI_BasinRE.win \
-era5_2006_formatOWI_BasinRE.win \
-era5_2007_formatOWI_BasinRE.win \
-era5_2008_formatOWI_BasinRE.win \
-era5_2009_formatOWI_BasinRE.win \
-era5_2010_formatOWI_BasinRE.win \
-era5_2011_formatOWI_BasinRE.win \
-era5_2012_formatOWI_BasinRE.win \
-era5_2013_formatOWI_BasinRE.win \
-era5_2014_formatOWI_BasinRE.win \
-era5_2015_formatOWI_BasinRE.win \
-era5_2016_formatOWI_BasinRE.win \
-era5_2017_formatOWI_BasinRE.win \
-era5_2018_formatOWI_BasinRE.win \
-era5_2019_formatOWI_BasinRE.win \
-era5_20200101_formatOWI_BasinRE.win \
->> era5_19790101_20200101_formatOWI_Basin.win
+for YEAR in $(seq $START_YEAR $END_YEAR)
+do
+    echo "Adding WIN file for ${YEAR}..."
+    cat "era5_${YEAR}_formatOWI_BasinRE.win" >> "$WIN_OUT"
+done
 
+#############################################
+# Finished
+#############################################
+
+echo
 echo "========================================="
 echo "Finished"
+echo
 echo "Created:"
-echo "  era5_19790101_20200101_formatOWI_Basin.pre"
-echo "  era5_19790101_20200101_formatOWI_Basin.win"
+echo "  $PRE_OUT"
+echo "  $WIN_OUT"
+echo
+echo "Header:"
+echo "  $HEADER"
 echo "========================================="
