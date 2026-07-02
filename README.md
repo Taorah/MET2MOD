@@ -236,7 +236,7 @@ Users may specify:
 * Output directory
 * Years to process
 * MATLAB or Python implementation
-* 
+ 
 Input:
 
 ```text
