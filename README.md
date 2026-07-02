@@ -61,7 +61,12 @@ MET2MOD
     │   ├── MATLAB
     │   │   ├── Convert2OWI_ALL_YEARS.m
     │   │   └── WriteOwi.m
-    │
+    |   |
+    |   |
+    │   └── Python
+    |        └── convert_era5_to_owi.py
+    |
+    |
     └── 3_Postprocess_OWI
         ├── ProcessRemoveHeaderLinesPre.sh
         ├── ProcessRemoveHeaderLinesWin.sh
@@ -156,7 +161,7 @@ The yearly NetCDF files are later converted into ADCIRC forcing files.
 
 ---
 
-## Download All Years automatically
+## Download All Years automatically (Specify Start and end Years)
 
 Run:
 
@@ -246,6 +251,12 @@ python convert_era5_to_owi.py
 
 The Python implementation follows the same logic as the MATLAB workflow:
 
+Reads ERA5 NetCDF files.
+Converts pressure from Pa to mb.
+Reorients ERA5 grids to OWI conventions.
+Generates yearly ADCIRC OWI pressure and wind files.
+
+The Python implementation is intended for users who do not have access to MATLAB and aims to produce output equivalent to the MATLAB workflow.
 ---
 
 # Step 3 — Remove Duplicate Headers
@@ -284,9 +295,9 @@ bash ProcessConcatenateFiles.sh
 Output:
 
 ```text
-era5_19790101_20250101_formatOWI_Basin.pre
+era5_StartYear/date_EndYear/date_formatOWI_Basin.pre
 
-era5_19790101_20250101_formatOWI_Basin.win
+era5_StartYear/date_EndYear/date_formatOWI_Basin.win
 ```
 
 ---
@@ -308,9 +319,9 @@ This header is required by ADCIRC and is automatically inserted during concatena
 Place:
 
 ```text
-era5_19790101_20250101_formatOWI_Basin.pre
+era5_StartYear/date_EndYear/date_formatOWI_Basin.pre
 
-era5_19790101_20250101_formatOWI_Basin.win
+era5_StartYear/date_EndYear/date_formatOWI_Basin.win
 ```
 
 into your ADCIRC simulation directory.
