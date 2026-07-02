@@ -50,7 +50,6 @@ The table below summarizes the primary user-configurable parameters available th
 | **ERA5 → OWI Conversion** | Input directory, output directory, years to process, MATLAB or Python implementation |
 | **Remove Duplicate Headers** | Start year, end year |
 | **Concatenate Files** | Start year, end year, output filename |
-| **ADCIRC Simulation** | Simulation period, computational mesh, meteorological forcing configuration (`fort.15`) |
 
 Throughout this README, user-configurable parameters are highlighted within each workflow step.
 
