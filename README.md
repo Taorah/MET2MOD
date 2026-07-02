@@ -6,11 +6,12 @@ MET2MOD is an open-source workflow for downloading ERA5 atmospheric reanalysis d
 
 **Current supported format:**
 
-* ADCIRC OWI (`*.pre`, `*.win`)
+* ADCIRC Oceanweather (OWI) (`*.pre`, `*.win`)
 
-Future planned support:
+**Future planned support:**
 
 * Delft3D-FM
+
 ---
 
 # Overview
@@ -33,11 +34,25 @@ Concatenate yearly files
 Multi-decadal ADCIRC forcing
 ```
 
-The workflow was developed for generating meteorological forcing for long-term ADCIRC simulations in the:
+The example workflow included in this repository demonstrates the generation of long-term ADCIRC Oceanweather (OWI) meteorological forcing using ERA5 atmospheric reanalysis data for the Gulf of Mexico, Caribbean Sea, and Western North Atlantic.
 
-* Gulf of Mexico
-* Caribbean Sea
-* Western North Atlantic
+---
+
+# Workflow Flexibility
+
+The Example Application provides a complete, reproducible workflow using ERA5 data and ADCIRC OWI forcing. While this example serves as the reference implementation, MET2MOD has been designed so that users can adapt key components of the workflow to suit different applications.
+
+The table below summarizes the primary user-configurable parameters available throughout the workflow.
+
+| Workflow Step            | User-configurable parameters |
+|--------------------------------------------------------|
+| ERA5 Download            | Start year, end year, spatial domain, output directory |
+| ERA5 → OWI Conversion    | Input/output directories, years to process, MATLAB or Python workflow |
+| Remove Duplicate Headers | Start year, end year |
+| Concatenate Files        | Start year, end year, output filename |
+| ADCIRC Simulation        | Simulation period, mesh, meteorological forcing configuration (`fort.15`) |
+
+Throughout this README, user-configurable parameters are highlighted within each workflow step.
 
 ---
 
@@ -61,16 +76,15 @@ MET2MOD
     │   ├── MATLAB
     │   │   ├── Convert2OWI_ALL_YEARS.m
     │   │   └── WriteOwi.m
-    |   |
-    |   |
+    │   │
     │   └── Python
-    |        └── convert_era5_to_owi.py
-    |
-    |
+    │       └── convert_era5_to_owi.py
+    │
     └── 3_Postprocess_OWI
         ├── ProcessRemoveHeaderLinesPre.sh
         ├── ProcessRemoveHeaderLinesWin.sh
         └── ProcessConcatenateFiles.sh
+```
 ```
 
 ---
@@ -138,6 +152,16 @@ Your request is too large, please reduce your selection
 ```
 
 **To avoid this limitation, MET2MOD downloads ERA5 data one year at a time.**
+## Download ERA5 Data
+
+### User-configurable parameters
+
+The download workflow allows users to specify:
+
+* Start year
+* End year
+* Geographic domain
+* Output directory
 
 Each script:
 
@@ -205,7 +229,15 @@ msl
 # Step 2 — Convert ERA5 NetCDF Files to ADCIRC OWI Format
 
 MET2MOD supports both MATLAB and Python workflows.
+### User-configurable parameters
 
+Users may specify:
+
+* Input directory
+* Output directory
+* Years to process
+* MATLAB or Python implementation
+* 
 Input:
 
 ```text
@@ -263,7 +295,14 @@ The Python implementation is intended for users who do not have access to MATLAB
 
 Each yearly OWI file contains an Oceanweather header.
 
-Before concatenation, duplicate yearly headers must be removed.
+Before yearly files can be concatenated into a continuous forcing record, duplicate file headers must be removed.
+
+### User-configurable parameters
+
+Users may specify:
+
+* Start year
+* End year
 
 Run:
 
@@ -287,6 +326,12 @@ These files are identical to the originals except that the first Oceanweather he
 # Step 4 — Concatenate Files
 
 Create continuous forcing records:
+### User-configurable parameters
+
+Users may specify:
+
+* Start year
+* End year
 
 ```bash
 bash ProcessConcatenateFiles.sh
@@ -338,17 +383,16 @@ according to your ADCIRC version and simulation setup.
 
 # Example Application
 
-The workflow has been used to generate:
+The example application included in this repository demonstrates the generation of hourly ADCIRC Oceanweather (OWI) meteorological forcing from ERA5 atmospheric reanalysis data.
 
-* Hourly wind fields
-* Hourly pressure fields
-* 40+ year forcing records
+Example configuration:
 
-for ADCIRC simulations covering:
+* Atmospheric dataset: ERA5
+* Output format: ADCIRC Oceanweather (OWI)
+* Temporal resolution: Hourly
+* Region: Gulf of Mexico, Caribbean Sea, and Western North Atlantic
 
-* Gulf of Mexico
-* Caribbean Sea
-* Western North Atlantic
+The example is intended as a reference implementation for reproducing the complete workflow. Users may adapt the workflow to different study regions, simulation periods, or project-specific requirements by modifying the user-configurable parameters identified throughout this README.
 
 ---
 
