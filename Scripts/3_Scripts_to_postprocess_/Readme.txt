@@ -8,6 +8,6 @@ This folder contains Bash scripts used to:
 
 Final output:
 
-era5_19790101_20200101_formatOWI_Basin.pre
+era5_StartYear/date_EndYear/date_formatOWI_Basin.pre
 
-era5_19790101_20200101_formatOWI_Basin.win
+era5_StartYear/date_EndYear/date_formatOWI_Basin.win
