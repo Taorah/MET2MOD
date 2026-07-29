@@ -2,7 +2,7 @@
 
 ## Meteorological Forcing Toolkit for Coastal Ocean Models
 
-MET2MOD is an open-source workflow for downloading ERA5 atmospheric reanalysis data and converting it into meteorological forcing files for coastal ocean models.
+MET2MOD is an open-source workflow for downloading ERA5 atmospheric reanalysis data and converting it into meteorological forcing files for coastal/ocean models.
 
 **Current supported format:**
 
