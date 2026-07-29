@@ -246,7 +246,7 @@ msl
 
 ---
 
-# Step 2 — Convert ERA5 NetCDF Files to Model Forcing Formats
+# Step 2 — Convert ERA5 NetCDF Files to Coastal Model Forcing Formats
 
 MET2MOD provides separate ADCIRC and Delft3D-FM conversion frameworks. Both frameworks include MATLAB and Python implementations.
 
