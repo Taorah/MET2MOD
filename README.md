@@ -38,6 +38,7 @@ Select Coastal Model
           Yearly .amu, .amv and .ampr files
              ↓
           Optional multi-year concatenation of coastal model forcing
+
 ```
 
 The example workflow included in this repository demonstrates the generation of long-term Oceanweather (OWI) meteorological forcing for coastal models, using ERA5 atmospheric reanalysis data for any location of interest across the world
