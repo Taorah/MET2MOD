@@ -273,9 +273,9 @@ era5_YYYY_formatOWI_Basin.win
 DELFT3D/DELFT3D-FM Example Output:
 
 ```text
-era5_2020_2021_Delft3D.amu
-era5_2020_2021_Delft3D.amv
-era5_2020_2021_Delft3D.ampr
+era5_YYYY_formatOWI_Delft3D.amu
+era5_YYYY_formatOWI_Delft3D.amv
+era5_YYYY_formatOWI_Delft3D.ampr
 ```
 
 ---
@@ -309,7 +309,7 @@ The Python implementation follows the same logic as the MATLAB workflow:
 Reads ERA5 NetCDF files.
 Converts pressure from Pa to mb.
 Reorients ERA5 grids to OWI conventions.
-Generates yearly ADCIRC OWI pressure and wind files.
+Generates yearly OWI pressure and wind files.
 
 The Python implementation is intended for users who do not have access to MATLAB and aims to produce output equivalent to the MATLAB workflow.
 ---
@@ -327,20 +327,20 @@ Users may specify:
 * Start year
 * End year
 
-Run:
+For Adcirc Run:
 
 ```bash
 bash ProcessRemoveHeaderLinesPre.sh
 
 bash ProcessRemoveHeaderLinesWin.sh
 ```
-
 Output:
 
 ```text
 *_BasinRE.pre
 *_BasinRE.win
 ```
+
 
 These files are identical to the originals except that the first Oceanweather header line has been removed.
 
@@ -355,7 +355,8 @@ Users may specify:
 
 * Start year
 * End year
-
+  
+For ADCIR Run: 
 ```bash
 bash ProcessConcatenateFiles.sh
 ```
@@ -367,19 +368,18 @@ era5_StartYear/date_EndYear/date_formatOWI_Basin.pre
 
 era5_StartYear/date_EndYear/date_formatOWI_Basin.win
 ```
+For DELFT3D Run:
 
----
-
-## Final OWI Header
-
-The final forcing files begin with:
+```bash
+python Concatenate_Delft3D_ALL_YEARS.py
+```
+Output:
 
 ```text
-Oceanweather WIN/PRE Format                          1979010100       2025010100
+era5_StartYear/date_EndYear/date_Delft3D.amu
+era5_StartYear/date_EndYear/date_Delft3D.amv
+eera5_StartYear/date_EndYear/date_Delft3D.ampr
 ```
-
-This header is required by ADCIRC and is automatically inserted during concatenation.
-
 ---
 
 # ADCIRC Usage
