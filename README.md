@@ -4,7 +4,7 @@
 
 MET2MOD is an open-source workflow for downloading ERA5 atmospheric reanalysis data and converting it into meteorological forcing files for coastal/ocean models.
 
-**Current supported format:**
+**Current supported formats:**
 
 * ADCIRC Oceanweather (OWI) (`*.pre`, `*.win`)
 
@@ -112,7 +112,7 @@ MET2MOD
         └── DELFT3D_Concatenate_Files
             └── Concatenate_Delft3D_ALL_YEARS.py
 ```
-```
+
 ---
 
 # Software Requirements
@@ -166,7 +166,7 @@ This allows the Python download scripts to authenticate automatically.
 
 ---
 
-## Why are downloads split by year?
+## Why are downloads split by months/yearly?
 
 Copernicus Climate Data Store (CDS) limits the maximum size of a single ERA5 request.
 
@@ -177,7 +177,8 @@ cost limits exceeded
 Your request is too large, please reduce your selection
 ```
 
-**To avoid this limitation, MET2MOD downloads ERA5 data one year at a time.**
+**To avoid this limitation, MET2MOD downloads ERA5 data one year at a time for 3-4 hous time step, or one month (hourly data)
+at a time and automatically merges the completed monthly files into one yearly NetCDF file.**
 ## Download ERA5 Data
 
 ### User-configurable parameters
@@ -216,7 +217,7 @@ The yearly NetCDF files are later converted into ADCIRC forcing files.
 Run:
 
 ```bash
-python download_era5_all.py
+python Download_ERA5_Hourly_Monthly_to_Yearly.py
 ```
 
 Output:
@@ -228,7 +229,7 @@ era5_1980.nc
 era5_2019.nc
 era5_2025.nc
 ```
-
+Completed monthly files are skipped when the script is restarted.
 ---
 
 ## Verify Download
@@ -333,7 +334,7 @@ Users may specify:
 * Start year
 * End year
 
-For Adcirc Run:
+For Adcirc, Run:
 
 ```bash
 bash ProcessRemoveHeaderLinesPre.sh
@@ -362,7 +363,7 @@ Users may specify:
 * Start year
 * End year
   
-For ADCIR Run: 
+For Adcirc, Run: 
 ```bash
 bash ProcessConcatenateFiles.sh
 ```
@@ -374,7 +375,7 @@ era5_StartYear/date_EndYear/date_formatOWI_Basin.pre
 
 era5_StartYear/date_EndYear/date_formatOWI_Basin.win
 ```
-For DELFT3D Run:
+For DELFT3D, Run:
 
 ```bash
 python Concatenate_Delft3D_ALL_YEARS.py
