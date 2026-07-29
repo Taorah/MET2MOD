@@ -266,10 +266,17 @@ era5_YYYY.nc
 ```
 
 Output:
-
+ADCIRC EXAMPLE Output:
 ```text
 era5_YYYY_formatOWI_Basin.pre
 era5_YYYY_formatOWI_Basin.win
+```
+DELFT3D/DELFT3D-FM Example Output:
+
+```text
+era5_2020_2021_Delft3D.amu
+era5_2020_2021_Delft3D.amv
+era5_2020_2021_Delft3D.ampr
 ```
 
 ---
