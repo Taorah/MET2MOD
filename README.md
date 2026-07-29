@@ -19,20 +19,25 @@ MET2MOD automates the workflow:
 ```
 ERA5 Download
       ↓
-NetCDF Files (.nc)
+Yearly NetCDF Files (.nc)
       ↓
 Select Coastal Model
-(ADCIRC/DELFT3D)
-      ↓
-Convert ERA5 → OWI
-      ↓
-Yearly .pre and .win files
-      ↓
-Remove duplicate headers
-      ↓
-Concatenate yearly files
-      ↓
-Multi-decadal coastal model forcing
+      │
+      ├── ADCIRC
+      │      ↓
+      │   Convert ERA5 → OWI
+      │      ↓
+      │   Yearly .pre and .win files
+      │      ↓
+      │   Optional concatenation of coastal model forcing
+      │
+      └── Delft3D / Delft3D-FM
+             ↓
+          Convert ERA5 → Delft3D forcing
+             ↓
+          Yearly .amu, .amv and .ampr files
+             ↓
+          Optional multi-year concatenation of coastal model forcing
 ```
 
 The example workflow included in this repository demonstrates the generation of long-term Oceanweather (OWI) meteorological forcing for coastal models, using ERA5 atmospheric reanalysis data for any location of interest across the world
