@@ -265,7 +265,6 @@ Input:
 era5_YYYY.nc
 ```
 
-Output:
 ADCIRC EXAMPLE Output:
 ```text
 era5_YYYY_formatOWI_Basin.pre
