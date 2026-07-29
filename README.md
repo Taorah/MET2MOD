@@ -405,11 +405,6 @@ according to your ADCIRC version and simulation setup.
 
 ---
 
-# Delft3D usage 
-
-```markdown
----
-
 # Delft3D / Delft3D-FM Usage
 
 Use the generated files:
@@ -418,6 +413,12 @@ Use the generated files:
 *.amu
 *.amv
 *.ampr
+```
+
+as the eastward wind, northward wind, and atmospheric pressure forcing files in the Delft3D-FM model configuration.
+
+The exact file references should be configured according to the Delft3D-FM model setup and forcing configuration being used.
+
 ---
 
 # Example Application
