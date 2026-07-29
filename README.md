@@ -8,9 +8,7 @@ MET2MOD is an open-source workflow for downloading ERA5 atmospheric reanalysis d
 
 * ADCIRC Oceanweather (OWI) (`*.pre`, `*.win`)
 
-**Future planned support:**
-
-* Delft3D-FM
+* Delft3D / Delft3D-FM meteorological forcing (`*.amu`, `*.amv`, `*.ampr`)
 
 ---
 
@@ -23,6 +21,9 @@ ERA5 Download
       ↓
 NetCDF Files (.nc)
       ↓
+Select Coastal Model
+(ADCIRC/DELFT3D)
+      ↓
 Convert ERA5 → OWI
       ↓
 Yearly .pre and .win files
@@ -31,16 +32,17 @@ Remove duplicate headers
       ↓
 Concatenate yearly files
       ↓
-Multi-decadal ADCIRC forcing
+Multi-decadal coastal model forcing
 ```
 
-The example workflow included in this repository demonstrates the generation of long-term ADCIRC Oceanweather (OWI) meteorological forcing using ERA5 atmospheric reanalysis data for the Gulf of Mexico, Caribbean Sea, and Western North Atlantic.
+The example workflow included in this repository demonstrates the generation of long-term Oceanweather (OWI) meteorological forcing for coastal models, using ERA5 atmospheric reanalysis data for any location of interest across the world
+Case Study Example/Application: Gulf of Mexico, Caribbean Sea, and Western North Atlantic.
 
 ---
 
 # Workflow Flexibility
 
-The Example Application provides a complete, reproducible workflow using ERA5 data and ADCIRC Oceanweather (OWI) forcing. While this example serves as the reference implementation, MET2MOD has been designed so that users can adapt key components of the workflow to suit different applications.
+The Example Application provides a complete, reproducible workflow using ERA5 data and coastal model Oceanweather (OWI) forcing. While this example serves as the reference implementation, MET2MOD has been designed so that users can adapt key components of the workflow to suit different applications.
 
 The table below summarizes the primary user-configurable parameters available throughout the workflow.
 
@@ -57,35 +59,54 @@ Throughout this README, user-configurable parameters are highlighted within each
 
 # Repository Structure
 
-```
+```text
 MET2MOD
 │
 ├── README.md
 │
-├── Data
-├── Docs
-├── Examples
-│
 └── Scripts
     │
-    ├── 1_Download_ERA5
-    │
-    ├── 2_Convert_ERA5_to_OWI
+    ├── 1_Script_to_Download_Era5
     │   │
-    │   ├── MATLAB
-    │   │   ├── Convert2OWI_ALL_YEARS.m
-    │   │   └── WriteOwi.m
-    │   │
-    │   └── Python
-    │       └── convert_era5_to_owi.py
+    │   ├── Download_ERA5_Hourly_Monthly_to_Yearly.py
+    │   ├── GrabFilesEra5_1979.py
+    │   ├── GrabFilesEra5_1980.py
+    │   ├── ...
+    │   └── GrabFilesEra5_2025.py
     │
-    └── 3_Postprocess_OWI
-        ├── ProcessRemoveHeaderLinesPre.sh
-        ├── ProcessRemoveHeaderLinesWin.sh
-        └── ProcessConcatenateFiles.sh
+    ├── 2_Script_to_Convert_to_OWI
+    │   │
+    │   ├── ADCIRC
+    │   │   │
+    │   │   ├── matlab_workflow
+    │   │   │   ├── Convert2OWI_ALL_YEARS.m
+    │   │   │   ├── WriteOwi.m
+    │   │   │   └── Readme.txt
+    │   │   │
+    │   │   └── python_workflow
+    │   │       └── convert_era5_to_owi.py
+    │   │
+    │   └── DELFT3D
+    │       │
+    │       ├── Matlab_Workflow
+    │       │   ├── Convert2Delft3DOWI_ALL_YEARS.m
+    │       │   └── WriteOwiDelft3D.m
+    │       │
+    │       └── Python_Workflow
+    │           └── ConvertERA52Delft3D_ALL_YEARS.py
+    │
+    └── 3_Scripts_to_postprocess_
+        │
+        ├── ADCIRC_Concatenate_Files
+        │   ├── ProcessRemoveHeaderLinesPre.sh
+        │   ├── ProcessRemoveHeaderLinesWin.sh
+        │   ├── ProcessConcatenateFiles.sh
+        │   └── Readme.txt
+        │
+        └── DELFT3D_Concatenate_Files
+            └── Concatenate_Delft3D_ALL_YEARS.py
 ```
 ```
-
 ---
 
 # Software Requirements
@@ -94,9 +115,9 @@ MET2MOD
 | -------- | ---------------------------------------------- |
 | Python   | Download ERA5 data |
 | MATLAB   | Convert ERA5 NetCDF files to ADCIRC OWI format |
-|          | Optional Python Script for same purpose
+|          | Optional **Python** Script for same purpose
 | Git Bash | Run post-processing scripts on Windows         |
-| ADCIRC   | Hydrodynamic simulations                       |
+| ADCIRC   | Optinal Python script for DELFT3D Forcings     |
 
 ---
 
@@ -225,9 +246,10 @@ msl
 
 ---
 
-# Step 2 — Convert ERA5 NetCDF Files to ADCIRC OWI Format
+# Step 2 — Convert ERA5 NetCDF Files to Model Forcing Formats
 
-MET2MOD supports both MATLAB and Python workflows.
+MET2MOD provides separate ADCIRC and Delft3D-FM conversion frameworks. Both frameworks include MATLAB and Python implementations.
+
 ### User-configurable parameters
 
 Users may specify:
@@ -265,10 +287,6 @@ This script uses matlab function:
 ```matlab 
 WriteOwi.m
 ```
-
-**to generate yearly ADCIRC OWI forcing files.**
-
-The MATLAB implementation is the original workflow used during development and validation of MET2MOD.
 
 ---
 
@@ -378,17 +396,35 @@ fort.15
 
 according to your ADCIRC version and simulation setup.
 
+
+---
+
+# Delft3D usage 
+
+```markdown
+---
+
+# Delft3D / Delft3D-FM Usage
+
+Use the generated files:
+
+```text
+*.amu
+*.amv
+*.ampr
 ---
 
 # Example Application
 
-The example application included in this repository demonstrates the generation of hourly ADCIRC Oceanweather (OWI) meteorological forcing from ERA5 atmospheric reanalysis data.
+The example application included in this repository demonstrates the generation of hourly Oceanweather (OWI) meteorological forcing for coastal/ocean models from ERA5 atmospheric reanalysis data.
 
 Example configuration:
 
 * Atmospheric dataset: ERA5
-* Output format: ADCIRC Oceanweather (OWI)
 * Temporal resolution: Hourly
+* Supported output formats:
+  * ADCIRC Oceanweather (`.pre`, `.win`)
+  * Delft3D-FM (`.amu`, `.amv`, `.ampr`)
 * Region: Gulf of Mexico, Caribbean Sea, and Western North Atlantic
 
 The example is intended as a reference implementation for reproducing the complete workflow. Users may adapt the workflow to different study regions, simulation periods, or project-specific requirements by modifying the user-configurable parameters identified throughout this README.
@@ -436,16 +472,6 @@ Install required Python packages:
 ```bash
 pip install numpy netCDF4 cdsapi
 ```
-
----
-
-# Future Development
-
-Planned additions include:
-
-* Delft3D-FM forcing generation
-
-
 ---
 
 # Acknowledgements
@@ -455,6 +481,7 @@ MET2MOD was developed using:
 * Copernicus Climate Change Service (C3S)
 * ERA5 Reanalysis Dataset
 * ADCIRC Modeling System
+* Delft3D Modeling System
 
 Louisiana State University; Louisiana State University: Coastal Ecosystem Design Studio
 
@@ -485,13 +512,14 @@ Project oversight and scientific guidance
 
 If you use MET2MOD in your research, please cite:
 
-Yusuf, T., Bacopoulos, P., and Brand, M. (2026). **MET2MOD: A workflow for downloading ERA5 meteorological forcing and generating ADCIRC Oceanweather (OWI) forcing files.**  GitHub repository: _https://github.com/Taorah/MET2MOD
+Yusuf, T., Bacopoulos, P., and Brand, M. (2026). **MET2MOD: A workflow for downloading ERA5 meteorological forcing and generating Oceanweather (OWI) forcing files for coastal models.**  GitHub repository: _https://github.com/Taorah/MET2MOD
 _
 
 Please also cite:
 
 * Copernicus Climate Change Service (C3S) ERA5 Reanalysis Dataset
 * ADCIRC Modeling System publications relevant to your application
+* Delft3D or Delft3D-FM publications relevant to their application
 
 
 # Contact
