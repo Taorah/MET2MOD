@@ -117,7 +117,7 @@ MET2MOD
 | MATLAB   | Convert ERA5 NetCDF files to ADCIRC OWI format |
 |          | Optional **Python** Script for same purpose
 | Git Bash | Run post-processing scripts on Windows         |
-| ADCIRC   | Optinal Python script for DELFT3D Forcings     |
+|          | Optinal Python script for DELFT3D Forcings     |
 
 ---
 
