@@ -9,8 +9,8 @@ Concatenate_Delft3D_ALL_YEARS.py
 ## Configure
 
 ```python
-START_YEAR = 2020 #should be edited to desired year
-END_YEAR = 2021 #should be edited to desired year
+START_YEAR = 2020
+END_YEAR = 2021
 INPUT_FOLDER = Path(r"PATH_TO_YEARLY_DELFT3D_FILES")
 OUTPUT_FOLDER = Path(r"PATH_TO_COMBINED_OUTPUTS")
 ```
@@ -32,9 +32,9 @@ python Concatenate_Delft3D_ALL_YEARS.py
 ## Output
 
 ```text
-era5_StartYear_EndYear_Delft3D.amu
-era5_StartYear_EndYear_Delft3D.amv
-era5_StartYear_EndYear_Delft3D.ampr
+era5_2020_2021_Delft3D.amu
+era5_2020_2021_Delft3D.amv
+era5_2020_2021_Delft3D.ampr
 ```
 
 ## What the script checks
