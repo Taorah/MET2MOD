@@ -66,14 +66,9 @@ The script writes one overall OWI header and appends the `RE` files in order.
 
 ## Important note
 
-The uploaded `ProcessConcatenateFiles.sh` is hard-coded for a 1979–2020 file list, output name, and header. Before another period is processed, update:
+The uploaded `ProcessConcatenateFiles.sh` is hard-coded for a 1979–2026 file list, output name, and header. This can be edited as will
 
-1. The first and last timestamps in `HEADER`.
-2. The output `.pre` and `.win` filenames.
-3. The complete ordered input-file list.
-4. Any partial-year filename.
-
-The header must match the actual first and last meteorological records.
+NOTE: The header must match the actual first and last meteorological records.
 
 ## Example output
 
