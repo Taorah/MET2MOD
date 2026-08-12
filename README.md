@@ -510,7 +510,7 @@ Louisiana State University: Department of Civil and Environmental Engineering
 
 Original ERA5-to-OWI workflow and supporting scripts.
 
-### Yusuf Taofiq
+### Taofiq Yusuf
 Department of Civil and Environmental Engineering
 Louisiana State University
 
@@ -540,6 +540,6 @@ Please also cite:
 
 Repository Maintainer:
 
-Yusuf Taofiq
+Taofiq Yusuf
 Louisiana State University
 Email: tyusuf1@lsu.edu
