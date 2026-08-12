@@ -4,17 +4,17 @@ message: "If you use this software, please cite it as below."
 type: software
 
 authors:
-  authors:
+  - family-names: "Yusuf"
+    given-names: "Taofiq"
+    affiliation: "Civil and Environmental Engineering, Louisiana State University"
 
-- name: Taofiq  Yusuf
-  affiliation: Department of Civil and Environmental Engineering, Louisiana State University
+  - family-names: "Bacopoulos"
+    given-names: "Peter"
+    affiliation: "Coastal Ecosystem Design Studio, Louisiana State University"
 
-- name: Peter Bacopoulos
-  affiliation: Coastal Ecosystem Design Studio, Louisiana State University;
-
-- name: Matthew Brand
-  affiliation: Department of Civil and Environmental Engineering, Louisiana State University
-
+  - family-names: "Brand"
+    given-names: "Matthew"
+    affiliation: "Department of Civil and Environmental Engineering, Louisiana State University"
 repository-code: "https://github.com/Taorah/MET2MOD"
 
 version: "1.0.0"
